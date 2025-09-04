@@ -1,0 +1,75 @@
+{
+    "_id": {
+        "$oid": "64def3ddb819a33127049e10"
+    },
+    "version": 1,
+    "accountId": {
+        "$oid": "63fef7372f43fa0bade54e74"
+    },
+    "organisationId": {
+        "$oid": "62612ad065d5a85acf3f7ef2"
+    },
+    "gatewayId": {
+        "$oid": "63f5981c9d0e766edea1d331"
+    },
+    "pondId": {
+        "$oid": "63be73008373ef231c3ec097"
+    },
+    "farmId": {
+        "$oid": "625e69c565d5a85acf3edd6a"
+    },
+    "compositeKey": "026e402b10fdf1c12f55a4e27c90f69f4ef5101f9df06fabc8be14a806475ba0",
+    "type": "SENSOR_CAP_AGED",
+    "messageId": {
+        "$oid": "64def3ddb819a33127049de4"
+    },
+    "channel": "MS_TEAMS",
+    "status": "SENT",
+    "createTimestamp": {
+        "$date": "2023-08-18T04:30:21.162Z"
+    },
+    "updateTimestamp": {
+        "$date": "2023-08-18T04:30:26.690Z"
+    },
+    "doNotSendBeforeTimestamp": {
+        "$date": "2023-08-18T04:30:21.158Z"
+    },
+    "pushNotificationEnabled": true,
+    "payload": {
+        "nodes": {
+            "title": {
+                "value": "Sensor cap: YL5022030503 for sensor: 63f5981d9d0e766edea1d334 installed on date 2022-06-17T14:45:37 is aged - affected controller 63f5981c9d0e766edea1d331 - affected organization Bkk Office Organization | Farm: Bangkok Office Farm | Pond: v3b6-test-pond-2-March",
+                "checksum": 4024074589,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "titleLink": {
+                "value": "https://admin-staging.hydroneo.net/sensors/63f5981d9d0e766edea1d334",
+                "checksum": 1362336532,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "color": {
+                "value": "WARNING",
+                "checksum": 2131452636,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "timestamp": {
+                "value": "2022-06-17T14:45:37Z",
+                "checksum": 3126332405,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "imageurl": {
+                "value": "https://i.postimg.cc/4xBGrJ1n/download.jpg",
+                "checksum": 2849388342,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "markdownIns": {
+                "nodes": [],
+                "hash": 0,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootArray"
+            }
+        },
+        "checksum": 2917915820
+    },
+    "errors": [],
+    "_class": "net.hydroneo.titan.resource.notification.domain.NotificationEntity"
+}

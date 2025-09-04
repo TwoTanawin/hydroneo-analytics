@@ -1,0 +1,236 @@
+{
+    "_id": {
+        "$oid": "66c6d86402b5cb7bb83325a8"
+    },
+    "version": 1,
+    "accountId": {
+        "$oid": "65697eb014c74e70ebc8c54b"
+    },
+    "organisationId": {
+        "$oid": "62612ad065d5a85acf3f7ef2"
+    },
+    "gatewayId": {
+        "$oid": "66c5909233216f402df17f9f"
+    },
+    "pondId": {
+        "$oid": "667d2ff40c1df8409467e5f0"
+    },
+    "farmId": {
+        "$oid": "627b89f455fb68436de69711"
+    },
+    "compositeKey": "cc769dd4f4d9d4b1eb81f0961a4501723f74e552e3956888ee105568a7632b84",
+    "type": "LUX_TEMP_VALUE_RAISED_ABOVE_REMINDER",
+    "messageId": {
+        "$oid": "66c6d86402b5cb7bb8332599"
+    },
+    "channel": "PUSH_NOTIFICATION",
+    "status": "FAILED",
+    "createTimestamp": {
+        "$date": "2024-08-22T06:19:16.717Z"
+    },
+    "updateTimestamp": {
+        "$date": "2024-08-22T06:19:26.706Z"
+    },
+    "doNotSendBeforeTimestamp": {
+        "$date": "2024-08-22T06:19:16.664Z"
+    },
+    "pushNotificationEnabled": true,
+    "payload": {
+        "nodes": {
+            "title": {
+                "value": "High-temperature alert!",
+                "checksum": 881788060,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "body": {
+                "value": "Powered by HydroNeo AI",
+                "checksum": 3568570846,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "deviceTokens": {
+                "nodes": [
+                    {
+                        "value": "eRU14YGNSn-ZmUw6xGxONJ:APA91bHoLOQvEY1WoOiqJZENQuI0CkHB138sr7Vr6GpB4E1II2PLNVGqKbkYF-wP28_yEbuoblIs40oyvg1d3cVFKOSMLz-jW_mkUBwLUgB6Z1OlYPQ5GagZBg9YVcVZi1Tzgx6lEUVH",
+                        "checksum": 24881104,
+                        "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+                    },
+                    {
+                        "value": "c3my-nX_Q3-SSSbPOTPpXa:APA91bHvpOlTLV7Gl6loeAvODSBY9itCt9qUK3Cn21PxaHMAhApPeQokObWOk5JAUN-mL5vyWoW1bZfnt-jMOgBYY73ssCB88dHxVO-I5x07OWHtOEpLx9CR0Kr1YGXduim7pxW0RSL5",
+                        "checksum": 3196757374,
+                        "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+                    },
+                    {
+                        "value": "c3my-nX_Q3-SSSbPOTPpXa:APA91bGYLEQgHwdPFs4tCTNtrvo8dxJn9jSnzQiLTkHCFtwZszHMuE4ETzjULP3IRaODeh02gNGJ3fbGgZcRZts5DNIQWhInhMEvOKLn81bzvGwWtb-bjF6D0chdOu1pMhPFdTDmr31K",
+                        "checksum": 3198789127,
+                        "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+                    }
+                ],
+                "hash": 4251961545,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootArray"
+            },
+            "stopAfterInMs": {
+                "value": 2400000,
+                "checksum": 2978319702,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootLongTerminal"
+            },
+            "data": {
+                "nodes": {
+                    "nodes": {
+                        "nodes": {
+                            "sensorId": {
+                                "value": "66c46cc9991a5f2db7a29e5c",
+                                "checksum": 1379143099,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+                            },
+                            "threshold": {
+                                "value": 30.0,
+                                "checksum": 3396293699,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootDoubleTerminal"
+                            },
+                            "value": {
+                                "value": 32.697098,
+                                "checksum": 3101479059,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootDoubleTerminal"
+                            },
+                            "waterParameterClass": {
+                                "value": "LUX_TEMP",
+                                "checksum": 752986937,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+                            },
+                            "timestamp": {
+                                "value": "2024-08-22T06:19:16",
+                                "checksum": 3453565938,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+                            }
+                        },
+                        "checksum": 1601226526,
+                        "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+                    },
+                    "checksum": {
+                        "value": 1601226526,
+                        "checksum": 4113615133,
+                        "_class": "net.hydroneo.titan.lib.hoot.node.HootLongTerminal"
+                    }
+                },
+                "checksum": 3143172015,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+            },
+            "accountPreferences": {
+                "nodes": {
+                    "nodes": {
+                        "nodes": {
+                            "accountDoThreshold": {
+                                "nodes": {
+                                    "accountAlarmEnabled": {
+                                        "value": false,
+                                        "checksum": 734881840,
+                                        "_class": "net.hydroneo.titan.lib.hoot.node.HootBooleanTerminal"
+                                    }
+                                },
+                                "checksum": 2019085844,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+                            },
+                            "accountPhThreshold": {
+                                "nodes": {
+                                    "accountAlarmEnabled": {
+                                        "value": false,
+                                        "checksum": 734881840,
+                                        "_class": "net.hydroneo.titan.lib.hoot.node.HootBooleanTerminal"
+                                    }
+                                },
+                                "checksum": 2019085844,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+                            },
+                            "accountTempThreshold": {
+                                "nodes": {
+                                    "accountAlarmEnabled": {
+                                        "value": false,
+                                        "checksum": 734881840,
+                                        "_class": "net.hydroneo.titan.lib.hoot.node.HootBooleanTerminal"
+                                    }
+                                },
+                                "checksum": 2019085844,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+                            },
+                            "accountPowerOutageNotification": {
+                                "nodes": {
+                                    "accountAlarmEnabled": {
+                                        "value": false,
+                                        "checksum": 734881840,
+                                        "_class": "net.hydroneo.titan.lib.hoot.node.HootBooleanTerminal"
+                                    }
+                                },
+                                "checksum": 2019085844,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+                            },
+                            "accountGatewayOnUpsWithLowBatteryNotification": {
+                                "nodes": {
+                                    "accountGatewayOnUpsWithLowBatteryNotification": {
+                                        "value": false,
+                                        "checksum": 734881840,
+                                        "_class": "net.hydroneo.titan.lib.hoot.node.HootBooleanTerminal"
+                                    }
+                                },
+                                "checksum": 3314562505,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+                            },
+                            "accountGatewayBatteryLowNotification": {
+                                "nodes": {
+                                    "accountGatewayBatteryLowNotification": {
+                                        "value": false,
+                                        "checksum": 734881840,
+                                        "_class": "net.hydroneo.titan.lib.hoot.node.HootBooleanTerminal"
+                                    }
+                                },
+                                "checksum": 57157910,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+                            },
+                            "accountSensorCapAgedNotification": {
+                                "nodes": {
+                                    "accountAlarmEnabled": {
+                                        "value": false,
+                                        "checksum": 734881840,
+                                        "_class": "net.hydroneo.titan.lib.hoot.node.HootBooleanTerminal"
+                                    }
+                                },
+                                "checksum": 2019085844,
+                                "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+                            }
+                        },
+                        "checksum": 4022265457,
+                        "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+                    },
+                    "checksum": {
+                        "value": 4022265457,
+                        "checksum": 3447694203,
+                        "_class": "net.hydroneo.titan.lib.hoot.node.HootLongTerminal"
+                    }
+                },
+                "checksum": 98519748,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+            },
+            "isCritical": {
+                "value": false,
+                "checksum": 734881840,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootBooleanTerminal"
+            }
+        },
+        "checksum": 1453136765
+    },
+    "fcmLabel": "v1-S-LTAR",
+    "errors": [
+        {
+            "errorCode": "UNREGISTERED",
+            "message": "Requested entity was not found."
+        },
+        {
+            "errorCode": "UNREGISTERED",
+            "message": "Requested entity was not found."
+        },
+        {
+            "errorCode": "UNREGISTERED",
+            "message": "Requested entity was not found."
+        }
+    ],
+    "_class": "net.hydroneo.titan.resource.notification.domain.NotificationEntity"
+}

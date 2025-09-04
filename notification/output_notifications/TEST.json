@@ -1,0 +1,74 @@
+{
+    "_id": {
+        "$oid": "6345754afc3c02590a06c057"
+    },
+    "version": 1,
+    "accountId": {
+        "$oid": "5fe09f1e9dc8d332d9253e0b"
+    },
+    "organisationId": {
+        "$oid": "62612ad065d5a85acf3f7ef2"
+    },
+    "compositeKey": "c7625e66a3d25e7cc62b9f0d9b8d8a5dc8f58bd7a46680f5b50a14c20c9a43bf",
+    "type": "TEST",
+    "messageId": {
+        "$oid": "6345752cfc3c02590a06c04e"
+    },
+    "channel": "PUSH_NOTIFICATION",
+    "status": "FAILED",
+    "createTimestamp": {
+        "$date": "2022-10-11T13:53:14.380Z"
+    },
+    "updateTimestamp": {
+        "$date": "2022-10-11T13:53:17.836Z"
+    },
+    "doNotSendBeforeTimestamp": {
+        "$date": "2022-10-11T13:53:14.288Z"
+    },
+    "pushNotificationEnabled": true,
+    "payload": {
+        "nodes": {
+            "title": {
+                "value": "HydroNeo Test Notification",
+                "checksum": 2279179507,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "body": {
+                "value": "Hello Smart Farmer",
+                "checksum": 814354931,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "deviceTokens": {
+                "nodes": [
+                    {
+                        "value": "cM2C6Au_Tre8PfsLmOZisv:APA91bF71iGdDifefWJhoPfKdhT-hNG2-WhXPAD6vHRlje8K9cWgSI8Ha7MVz0yLo2U1n1iCQsMtAOup0JCpiZvg7bidxehNE-SSKtf2FSOIR4ckUvNNB366WFigwerzNbybbEbkhy0x",
+                        "checksum": 1188464260,
+                        "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+                    },
+                    {
+                        "value": "chVDoUvkvUdXnQDt7HcgjO:APA91bGzChj56ZoNuJCbekMdbFNV7VX9JH3SB8pmB1pJi1tVmwfjC6xshrslggtGPoGv8sP9HzDK3Dh2lSZu4YvjWKC4EDdW8_etdyDK2BIKLiRwiGa_mKDCZyCDq1pYdvAqHUqR54wL",
+                        "checksum": 459609118,
+                        "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+                    }
+                ],
+                "hash": 3449780336,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootArray"
+            },
+            "isCritical": {
+                "value": false,
+                "checksum": 734881840,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootBooleanTerminal"
+            }
+        },
+        "checksum": 1515776752
+    },
+    "errors": [
+        {
+            "errorCode": "UNKNOWN"
+        }
+    ],
+    "_class": "net.hydroneo.titan.resource.notification.domain.NotificationEntity",
+    "farmId": null,
+    "gatewayId": null,
+    "pondId": null
+}

@@ -1,0 +1,75 @@
+{
+    "_id": {
+        "$oid": "6357758f137e44072f33c97a"
+    },
+    "version": 1,
+    "accountId": {
+        "$oid": "5f9e4b515d380768c3ade5a7"
+    },
+    "organisationId": {
+        "$oid": "62612ad065d5a85acf3f7ef2"
+    },
+    "gatewayId": {
+        "$oid": "62d52b0c135a467f21bc5584"
+    },
+    "pondId": {
+        "$oid": "63577585137e44072f33c94a"
+    },
+    "farmId": {
+        "$oid": "625e69c565d5a85acf3edd6a"
+    },
+    "compositeKey": "80cf0e0f06bc6d37c5bf88fd42ab87154858d6721900aba692827ee79b2e62d9",
+    "type": "GATEWAY_ON_UPS",
+    "messageId": {
+        "$oid": "6357758f137e44072f33c978"
+    },
+    "channel": "MS_TEAMS",
+    "status": "SENT",
+    "createTimestamp": {
+        "$date": "2022-10-25T05:35:11.368Z"
+    },
+    "updateTimestamp": {
+        "$date": "2022-10-25T05:35:17.784Z"
+    },
+    "doNotSendBeforeTimestamp": {
+        "$date": "2022-10-25T05:35:11.347Z"
+    },
+    "pushNotificationEnabled": true,
+    "payload": {
+        "nodes": {
+            "title": {
+                "value": "Gateway 62d52b0c135a467f21bc5584 on UPS",
+                "checksum": 564461128,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "titleLink": {
+                "value": "https://admin-staging.hydroneo.net/gateways/62d52b0c135a467f21bc5584",
+                "checksum": 1891147302,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "color": {
+                "value": "WARNING",
+                "checksum": 2131452636,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "timestamp": {
+                "value": "2022-10-25T05:35:11Z",
+                "checksum": 1201252119,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "imageurl": {
+                "value": "https://i.postimg.cc/8CzKsvrB/rip.jpg",
+                "checksum": 1457820610,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+            },
+            "markdownIns": {
+                "nodes": [],
+                "hash": 0,
+                "_class": "net.hydroneo.titan.lib.hoot.node.HootArray"
+            }
+        },
+        "checksum": 1646499158
+    },
+    "errors": [],
+    "_class": "net.hydroneo.titan.resource.notification.domain.NotificationEntity"
+}
