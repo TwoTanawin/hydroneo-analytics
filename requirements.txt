@@ -1,3 +1,5 @@
 pymongo
 python-dotenv
 geopandas
+requests
+python-dotenv
