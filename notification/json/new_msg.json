@@ -1,0 +1,70 @@
+{
+  "_id": {
+    "$oid": "68e39744bc87e35351613715"
+  },
+  "version": {
+    "$numberLong": "0"
+  },
+  "accountId": {
+    "$oid": "65697eb014c74e70ebc8c54b"
+  },
+  "organisationId": {
+    "$oid": "66fe10ffd46cc8499607eceb"
+  },
+  "gatewayId": {
+    "$oid": "66b07a3fae4a3062cdd2aa7d"
+  },
+  "pondId": {
+    "$oid": "68c8ea43c2095834b03378d0"
+  },
+  "farmId": {
+    "$oid": "6899bc2e3787096263ff31f6"
+  },
+  "type": "SENSOR_VALUE_RAISED_ABOVE_CRITICAL",
+  "data": {
+    "nodes": {
+      "nodes": {
+        "nodes": {
+          "threshold": {
+            "value": 0,
+            "checksum": {
+              "$numberLong": "4143187202"
+            },
+            "_class": "net.hydroneo.titan.lib.hoot.node.HootFloatTerminal"
+          },
+          "value": {
+            "value": 96.2699966430664,
+            "checksum": {
+              "$numberLong": "3628929027"
+            },
+            "_class": "net.hydroneo.titan.lib.hoot.node.HootFloatTerminal"
+          },
+          "waterParameterClass": {
+            "value": "DO",
+            "checksum": {
+              "$numberLong": "867157247"
+            },
+            "_class": "net.hydroneo.titan.lib.hoot.node.HootStringTerminal"
+          }
+        },
+        "checksum": {
+          "$numberLong": "1385806372"
+        },
+        "_class": "net.hydroneo.titan.lib.hoot.node.HootObject"
+      }
+    },
+    "checksum": {
+      "$numberLong": "1709645286"
+    }
+  },
+  "read": false,
+  "deleted": false,
+  "pushNotificationEnabled": true,
+  "createdTimestamp": {
+    "$date": "2025-10-06T10:17:40.201Z"
+  },
+  "updatedTimestamp": {
+    "$date": "2025-10-06T10:17:40.201Z"
+  },
+  "_class": "net.hydroneo.notification_service.models.MessageModel"
+}
