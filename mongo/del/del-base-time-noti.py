@@ -29,26 +29,29 @@ class MongoConnection:
         self.collection = self.db[self.collections]
         return self.db, self.collection
     
+
 if __name__ == "__main__":
     mongo = MongoConnection()
     client = mongo.connect()
     db, collection = mongo.get_db()
     
-    # define range for October 6, 2025 (full day, UTC)
-    start_date = datetime(2025, 10, 6, 0, 0, 0, tzinfo=timezone.utc)
-    end_date   = datetime(2025, 10, 8, 0, 0, 0, tzinfo=timezone.utc)
+    # Define range for October 6–7, 2025 (UTC full days)
+    start_date = datetime(2025, 10, 1, 0, 0, 0, tzinfo=timezone.utc)
+    end_date   = datetime(2025, 10, 9, 23, 59, 59, tzinfo=timezone.utc)
     
-    query = {
-        "createdTimestamp": {"$gte": start_date, "$lt": end_date}
-    }
-    
-    # preview first 5 docs
-    matches = list(collection.find(query).limit(5))
+    # IMPORTANT: field name is createTimestamp (no "d")
+    query = {"createTimestamp": {"$gte": start_date, "$lte": end_date}}
+
+    # Count matches
+    match_count = collection.count_documents(query)
+    print(f"Matched {match_count} documents")
+
+    # Preview first 5 docs
     print("Preview of docs to be deleted:")
-    for m in matches:
+    for m in collection.find(query).limit(5):
         print(m)
-    
-    # delete
+
+    # Confirm + delete
     confirm = input("Proceed with delete? (yes/no): ").strip().lower()
     if confirm == "yes":
         result = collection.delete_many(query)

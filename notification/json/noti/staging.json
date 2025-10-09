@@ -1,0 +1,56 @@
+{
+  "_id": {
+    "$oid": "68e49fc2c2dbf0a4ab8441c7"
+  },
+  "version": {
+    "$numberLong": "1"
+  },
+  "accountId": {
+    "$oid": "67c53e97d918d60bb42593be"
+  },
+  "organisationId": {
+    "$oid": "66fe10ffd46cc8499607eceb"
+  },
+  "gatewayId": {
+    "$oid": "66b07a3fae4a3062cdd2aa7d"
+  },
+  "pondId": {
+    "$oid": "68c8ea43c2095834b03378d0"
+  },
+  "farmId": {
+    "$oid": "6899bc2e3787096263ff31f6"
+  },
+  "compositeKey": "18fd426dc5d14ddfe4c747b474196c5edde11f35134cfa988a8f64efa63b8899",
+  "messageType": "SENSOR_VALUE_RAISED_ABOVE_CRITICAL",
+  "messageId": {
+    "$oid": "68e49fc2c2dbf0a4ab8441c8"
+  },
+  "channel": "PUSH_NOTIFICATION",
+  "status": "FAILED",
+  "createTimestamp": {
+    "$date": "2025-10-07T05:06:10.827Z"
+  },
+  "updateTimestamp": {
+    "$date": "2025-10-07T05:06:10.827Z"
+  },
+  "doNotSendBeforeTimestamp": {
+    "$date": "2025-10-07T05:06:10.827Z"
+  },
+  "pushNotificationEnabled": false,
+  "payload": {
+    "nodes": {
+      "isCritical": {
+        "value": false,
+        "checksum": {
+          "$numberLong": "734881840"
+        },
+        "_class": "net.hydroneo.titan.lib.hoot.node.HootBooleanTerminal"
+      }
+    },
+    "checksum": {
+      "$numberLong": "3402458304"
+    }
+  },
+  "errors": [],
+  "_class": "net.hydroneo.notification_service.models.NotificationModel"
+}
