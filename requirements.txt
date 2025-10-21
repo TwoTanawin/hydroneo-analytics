@@ -3,3 +3,4 @@ python-dotenv
 geopandas
 requests
 python-dotenv
+pyarrow
