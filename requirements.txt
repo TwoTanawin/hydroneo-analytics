@@ -4,3 +4,8 @@ geopandas
 requests
 python-dotenv
 pyarrow
+geopy
+tqdm
+scikit-learn
+folium
+matplotlib
