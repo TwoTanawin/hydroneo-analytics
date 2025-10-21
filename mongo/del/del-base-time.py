@@ -12,7 +12,7 @@ class MongoConnection:
         self.uri = os.getenv("MONGO_URI")
         self.timeout_ms = timeout_ms
         self.db_name = os.getenv("DATABASE_NAME")
-        self.collections = "notification_resource_notifications"
+        self.collections = "message_resource_messages"
         
     def connect(self) -> MongoClient:
         if not self.uri:
@@ -36,7 +36,7 @@ if __name__ == "__main__":
     
     # define range for October 6, 2025 (full day, UTC)
     start_date = datetime(2025, 10, 6, 0, 0, 0, tzinfo=timezone.utc)
-    end_date   = datetime(2025, 10, 8, 0, 0, 0, tzinfo=timezone.utc)
+    end_date   = datetime(2025, 10, 15, 0, 0, 0, tzinfo=timezone.utc)
     
     query = {
         "createdTimestamp": {"$gte": start_date, "$lt": end_date}
