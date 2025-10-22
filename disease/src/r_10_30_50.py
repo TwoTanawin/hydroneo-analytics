@@ -12,7 +12,7 @@ def run_dbscan(df: pd.DataFrame, km: float, min_samples: int = 1) -> pd.DataFram
     coords_rad = np.radians(coords)
 
     eps = km_to_radians(km)
-    db = DBSCAN(eps=eps, min_samples=min_samples, metric='haversine')
+    db = DBSCAN(eps=eps, min_samples=min_samples, metric='euclidean')
 
     df[f'cluster_{km}km'] = db.fit_predict(coords_rad)
     return df

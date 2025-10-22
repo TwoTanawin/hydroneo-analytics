@@ -36,7 +36,7 @@ def train_dbscan(df: pd.DataFrame, km: float, min_samples: int = 1, model_dir: s
 
 if __name__ == "__main__":
     # Input/output
-    input_file = r"E:\Hydroneo\Analytics\disease\data\disease_locations.parquet"
+    input_file = r"E:\Hydroneo\Analytics\disease\data\cleaned_data_removed_ZERO.parquet"
     output_file = r"E:\Hydroneo\Analytics\disease\data\disease_clusters.parquet"
     model_dir = r"E:\Hydroneo\Analytics\disease\models"
 
