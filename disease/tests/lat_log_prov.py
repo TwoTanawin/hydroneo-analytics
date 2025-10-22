@@ -2,8 +2,8 @@ from geopy.geocoders import Nominatim
 
 geolocator = Nominatim(user_agent="my-app-name")
 
-latitude = 34.052235
-longitude = -118.243683
+latitude = 13.7063
+longitude = 100.4597
 
 location = geolocator.reverse((latitude, longitude), exactly_one=True)
 
