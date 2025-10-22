@@ -22,21 +22,21 @@ async def run_kmeans(df, km, model_dir, n_clusters=5):
     joblib.dump(km_model, model_path)
     print(f"💾 Saved model → {model_path}")
     
-    # # Save ONNX model
-    # onnx_path = os.path.join(model_dir, f"kmeans_{km}km_model.onnx")
-    # await convert_to_onnx(km_model, onnx_path, n_features=2)  # lat + lon
-    # print(f"📦 Saved ONNX model → {onnx_path}")
+    # Save ONNX model
+    onnx_path = os.path.join(model_dir, f"kmeans_{km}km_model.onnx")
+    await convert_to_onnx(km_model, onnx_path, n_features=2)  # lat + lon
+    print(f"📦 Saved ONNX model → {onnx_path}")
 
     return df
 
-# async def convert_to_onnx(model, onnx_path, n_features: int = 2):
-#     try:
-#         initial_type = [("float_input", FloatTensorType([None, n_features]))]
-#         onnx_model = convert_sklearn(model, initial_types=initial_type)
-#         with open(onnx_path, "wb") as f:
-#             f.write(onnx_model.SerializeToString())
-#     except Exception as e:
-#         print(f"⚠️ Could not convert to ONNX: {e}")
+async def convert_to_onnx(model, onnx_path, n_features: int = 2):
+    try:
+        initial_type = [("float_input", FloatTensorType([None, n_features]))]
+        onnx_model = convert_sklearn(model, initial_types=initial_type)
+        with open(onnx_path, "wb") as f:
+            f.write(onnx_model.SerializeToString())
+    except Exception as e:
+        print(f"⚠️ Could not convert to ONNX: {e}")
 
 async def main():
     data_path = r"E:\Hydroneo\Analytics\disease\data\cleaned_data_removed_ZERO.parquet"

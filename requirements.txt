@@ -9,3 +9,6 @@ tqdm
 scikit-learn
 folium
 matplotlib
+skl2onnx
+onnx 
+onnxruntime
