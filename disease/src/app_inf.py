@@ -1,18 +1,15 @@
 import pandas as pd
 import numpy as np
-from sklearn.cluster import KMeans
+import joblib
+import onnxruntime as ort
 
 def haversine_vectorized(lat1, lon1, lat2, lon2):
     R = 6371.0  # Earth's radius in km
-
     lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
-
     dlat = lat2 - lat1
     dlon = lon2 - lon1
-
     a = np.sin(dlat / 2.0) ** 2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon / 2.0) ** 2
     c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a))
-
     return R * c
 
 def distance_score_vectorized(distances):
@@ -21,18 +18,30 @@ def distance_score_vectorized(distances):
     scores[(distances >= 1) & (distances < 10)] = 80
     scores[(distances >= 10) & (distances < 20)] = 60
     scores[(distances >= 20) & (distances < 50)] = 40
-    # distances >= 50 will stay 0
     return scores
 
-def train_kmeans(df: pd.DataFrame, n_clusters: int):
-    coords = df[['latitude', 'longitude']].to_numpy()
-    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
-    df['cluster'] = kmeans.fit_predict(coords)
-    return df, kmeans
+def load_model(joblib_model_path):
+    return joblib.load(joblib_model_path)
+
+def load_onnx_model(onnx_model_path):
+    session = ort.InferenceSession(onnx_model_path)
+    print(f"✅ ONNX model loaded: {onnx_model_path}")
+    return session
 
 def predict_cluster(kmeans, new_lat, new_lon) -> int:
     new_point = np.array([[new_lat, new_lon]])
     return kmeans.predict(new_point)[0]
+
+def predict_onnx_cluster(session, new_lat, new_lon):
+    new_point = np.array([[new_lat, new_lon]], dtype=np.float32)
+    
+    input_name = session.get_inputs()[0].name
+    output_name = session.get_outputs()[0].name
+    
+    # Run inference
+    predicted_cluster = session.run([output_name], {input_name: new_point})[0][0]
+    
+    return int(predicted_cluster)
 
 def main():
     # Load DataFrame
@@ -40,10 +49,10 @@ def main():
         r"E:\Hydroneo\Analytics\disease\data\cleaned_data_removed_ZERO.parquet", 
         engine="pyarrow"
     )
-
-    # Train KMeans
-    n_clusters = 3
-    df, kmeans = train_kmeans(df, n_clusters)
+    
+    # Load pre-trained KMeans model
+    joblib_model_path = r'E:\Hydroneo\Analytics\disease\models\kmean_2_model_20251029_110536.pkl'
+    kmeans = load_model(joblib_model_path)
     print("Cluster centers (lat, lon):")
     print(kmeans.cluster_centers_)
 
@@ -52,7 +61,10 @@ def main():
     cluster_id = predict_cluster(kmeans, new_lat, new_lon)
     print(f"Cluster ID: {cluster_id}")
 
-    # Filter cluster
+    coords = df[['latitude', 'longitude']].to_numpy()
+    df['cluster'] = kmeans.predict(coords)
+
+    # Now you can filter
     df_cluster = df[df['cluster'] == cluster_id].copy()
 
     # Vectorized distance calculation
