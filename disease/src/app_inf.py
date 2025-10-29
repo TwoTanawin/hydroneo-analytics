@@ -51,20 +51,23 @@ def main():
     )
     
     # Load pre-trained KMeans model
-    joblib_model_path = r'E:\Hydroneo\Analytics\disease\models\kmean_2_model_20251029_110536.pkl'
-    kmeans = load_model(joblib_model_path)
-    print("Cluster centers (lat, lon):")
-    print(kmeans.cluster_centers_)
+    # joblib_model_path = r'E:\Hydroneo\Analytics\disease\models\kmean_2_model_20251029_110536.pkl'
+    onnx_model_path = r"E:\Hydroneo\Analytics\disease\models\kmean_2_model_20251029_110536.onnx"
+    
+    session = load_onnx_model(onnx_model_path)
 
     # Reference point
     new_lat, new_lon = 13.556924, 100.0950911
-    cluster_id = predict_cluster(kmeans, new_lat, new_lon)
-    print(f"Cluster ID: {cluster_id}")
+    cluster_id = predict_onnx_cluster(session, new_lat, new_lon)
+    print(f"✅ Predicted cluster: {cluster_id}")
 
-    coords = df[['latitude', 'longitude']].to_numpy()
-    df['cluster'] = kmeans.predict(coords)
+    # Predict cluster for all rows in DataFrame
+    coords = df[['latitude', 'longitude']].to_numpy(dtype=np.float32)
+    input_name = session.get_inputs()[0].name
+    output_name = session.get_outputs()[0].name
+    df['cluster'] = session.run([output_name], {input_name: coords})[0]
 
-    # Now you can filter
+    # Filter by cluster
     df_cluster = df[df['cluster'] == cluster_id].copy()
 
     # Vectorized distance calculation
