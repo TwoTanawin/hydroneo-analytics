@@ -36,7 +36,7 @@ async def convert_to_onnx(model, onnx_path, n_features: int = 2):
         with open(onnx_path, "wb") as f:
             f.write(onnx_model.SerializeToString())
     except Exception as e:
-        print(f"⚠️ Could not convert to ONNX: {e}")
+        print(f"Could not convert to ONNX: {e}")
 
 async def main():
     data_path = r"E:\Hydroneo\Analytics\disease\data\cleaned_data_removed_ZERO.parquet"
