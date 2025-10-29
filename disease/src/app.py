@@ -56,29 +56,19 @@ def main():
 
     # --- Reference point ---
     new_lat, new_lon = 13.556924, 100.0950911
+    
+    cluster_id = predict_cluster(kmeans, new_lat, new_lon)
+    print(f"Cluster ID {cluster_id}")
+    
+    df_cluster = df[df['cluster'] == cluster_id].copy() 
 
-    # Distance & score to reference point
-    df['distance_km'] = df.apply(
+    df_cluster['distance_km'] = df_cluster.apply(
         lambda row: haversine(row['latitude'], row['longitude'], new_lat, new_lon),
         axis=1
     )
-    df['score'] = df['distance_km'].apply(distance_score)
+    df_cluster['score'] = df_cluster['distance_km'].apply(distance_score)
 
-    # --- Distance & score to cluster center ---
-    def distance_to_center(row):
-        cluster_center = kmeans.cluster_centers_[row['cluster']]
-        return haversine(row['latitude'], row['longitude'], cluster_center[0], cluster_center[1])
-
-    df['distance_to_center_km'] = df.apply(distance_to_center, axis=1)
-    df['center_score'] = df['distance_to_center_km'].apply(distance_score)
-
-    # Predict cluster for the new point
-    cluster_id = predict_cluster(kmeans, new_lat, new_lon)
-    print(f"New point belongs to cluster: {cluster_id}")
-
-    # Show results
-    print(df[['id', 'latitude', 'longitude', 'cluster', 
-              'distance_km', 'score', 'distance_to_center_km', 'center_score']])
+    print(df_cluster[['id', 'latitude', 'longitude', 'cluster', 'distance_km', 'score']])
 
 if __name__ == "__main__":
     main()
