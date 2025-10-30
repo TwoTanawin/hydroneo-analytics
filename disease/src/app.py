@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.cluster import KMeans
+import time
 
 def haversine_vectorized(lat1, lon1, lat2, lon2):
     R = 6371.0  # Earth's radius in km
@@ -35,6 +36,7 @@ def predict_cluster(kmeans, new_lat, new_lon) -> int:
     return kmeans.predict(new_point)[0]
 
 def main():
+    start = time.time()
     # Load DataFrame
     df = pd.read_parquet(
         r"E:\Hydroneo\Analytics\disease\data\cleaned_data_removed_ZERO.parquet", 
@@ -69,6 +71,9 @@ def main():
     # Top 10
     top10 = df_cluster.sort_values(by='score', ascending=False).head(10)
     print(top10[['id', 'latitude', 'longitude', 'cluster', 'distance_km', 'score']])
+    
+    end = time.time()
+    print(f"Time taken: {end - start:.4f} seconds")
 
 if __name__ == "__main__":
     main()

@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import joblib
 import onnxruntime as ort
+import time
 
 def haversine_vectorized(lat1, lon1, lat2, lon2):
     R = 6371.0  # Earth's radius in km
@@ -44,6 +45,8 @@ def predict_onnx_cluster(session, new_lat, new_lon):
     return int(predicted_cluster)
 
 def main():
+    start = time.time()
+    
     # Load DataFrame
     df = pd.read_parquet(
         r"E:\Hydroneo\Analytics\disease\data\cleaned_data_removed_ZERO.parquet", 
@@ -57,7 +60,7 @@ def main():
     session = load_onnx_model(onnx_model_path)
 
     # Reference point
-    new_lat, new_lon = 13.556924, 100.0950911
+    new_lat, new_lon = 13.569897781688686, 100.05840911221225
     cluster_id = predict_onnx_cluster(session, new_lat, new_lon)
     print(f"✅ Predicted cluster: {cluster_id}")
 
@@ -84,6 +87,9 @@ def main():
     # Top 10
     top10 = df_cluster.sort_values(by='score', ascending=False).head(10)
     print(top10[['id', 'latitude', 'longitude', 'cluster', 'distance_km', 'score']])
-
+    
+    end = time.time()
+    print(f"Time taken: {end - start:.4f} seconds")
+    
 if __name__ == "__main__":
     main()
