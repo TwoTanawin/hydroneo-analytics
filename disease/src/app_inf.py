@@ -60,7 +60,7 @@ def main():
     session = load_onnx_model(onnx_model_path)
 
     # Reference point
-    new_lat, new_lon = 13.569897781688686, 100.05840911221225
+    new_lat, new_lon = 13.569897781688686, 100.05840911221225                            
     cluster_id = predict_onnx_cluster(session, new_lat, new_lon)
     print(f"✅ Predicted cluster: {cluster_id}")
 
