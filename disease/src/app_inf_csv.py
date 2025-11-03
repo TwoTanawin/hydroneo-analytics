@@ -47,20 +47,17 @@ def predict_onnx_cluster(session, new_lat, new_lon):
 def main():
     start = time.time()
     
-    # Load DataFrame
-    df = pd.read_parquet(
-        r"E:\Hydroneo\Analytics\disease\data\cleaned_data_removed_ZERO.parquet", 
-        engine="pyarrow"
+    # Load DataFrame from CSV
+    df = pd.read_csv(
+        r"E:\Hydroneo\Analytics\disease\data\cleaned_data_removed_ZERO.csv"
     )
     
-    # Load pre-trained KMeans model
-    # joblib_model_path = r'E:\Hydroneo\Analytics\disease\models\kmean_2_model_20251029_110536.pkl'
+    # Load pre-trained ONNX model
     onnx_model_path = r"E:\Hydroneo\Analytics\disease\models\kmean_2_model_20251029_111224.onnx"
-    
     session = load_onnx_model(onnx_model_path)
 
     # Reference point
-    new_lat, new_lon = 13.569897781688686, 100.05840911221225                            
+    new_lat, new_lon = 13.569897781688686, 100.05840911221225
     cluster_id = predict_onnx_cluster(session, new_lat, new_lon)
     print(f"✅ Predicted cluster: {cluster_id}")
 
