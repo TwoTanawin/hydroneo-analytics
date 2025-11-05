@@ -57,7 +57,7 @@ def main():
     session = load_onnx_model(onnx_model_path)
 
     # Reference point
-    new_lat, new_lon = 13.569897781688686, 100.05840911221225
+    new_lat, new_lon = 15.3925, 100.1031
     cluster_id = predict_onnx_cluster(session, new_lat, new_lon)
     print(f"✅ Predicted cluster: {cluster_id}")
 
@@ -78,12 +78,17 @@ def main():
         new_lon
     )
 
-    # Vectorized score calculation
-    df_cluster['score'] = distance_score_vectorized(df_cluster['distance_km'].to_numpy())
+    # Filter distances less than or equal to 100 km
+    df_near = df_cluster[df_cluster['distance_km'] <= 100].copy()
+    print(f"✅ Found {len(df_near)} records within 100 km")
 
-    # Top 10
-    top10 = df_cluster.sort_values(by='score', ascending=False).head(10)
-    print(top10[['id', 'latitude', 'longitude', 'cluster', 'distance_km', 'score']])
+    # Vectorized score calculation
+    df_near['score'] = distance_score_vectorized(df_near['distance_km'].to_numpy())
+
+    # Show top 10 nearest points
+    top10_near = df_near.sort_values(by='distance_km', ascending=True).head(10)
+    print(top10_near[['id', 'latitude', 'longitude', 'distance_km', 'score']])
+
     
     end = time.time()
     print(f"Time taken: {end - start:.4f} seconds")
